@@ -1,0 +1,94 @@
+header {
+    background-color: white;
+}
+
+body {
+    background-color: lightgrey;
+}
+
+#nevBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    clear: both;
+}
+
+#nevBar img {
+    border: 2px solid black;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    overflow: hidden;
+    margin-left: 5px;
+}
+
+#navigations {
+    float: right;
+    border: 1px solid gray;
+    margin-right: 5px;
+}
+
+.buttons {
+    box-sizing: border-box;
+    padding: 20px;
+
+}
+
+#content {
+}
+
+*:-webkit-any(article, aside, nav, section) h1 {
+    font-size: 2em;
+}
+
+
+article {
+    float: left;
+    max-width: 80%;
+}
+
+article header {
+    background-color: white;
+}
+
+article section {
+    background-color: white;
+    height: 1000px;
+    margin-bottom: 20px;
+} 
+
+#content article section img {
+    width: 500px;
+    height: 500px;
+}
+
+aside {
+    float: right;
+    background-color: white;
+    width: 200px;
+    height: 450px;
+    margin-top: 20px;
+}
+
+footer {
+    clear: both;
+    background-color: white;
+    margin-top: 20px;
+
+}
+
+#back-to-top {
+    background-color: black;
+    background-image: url("https://www.colwick.com/wp-content/uploads/2015/11/Delta-Arrow-logo.png");
+    background-position: center;
+    background-size: cover;
+    width: 75px;
+    height: 75px;
+    position: fixed;
+    bottom: 0px;
+    right:0px;
+    border-radius: 35px;
+    border: 2px solid red;
+
+}
