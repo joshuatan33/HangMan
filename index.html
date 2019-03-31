@@ -1,82 +1,101 @@
 <!DOCTYPE html>
-
 <html>
-	<head>
-		<!-- Links to js and css files go here -->
-		<title>My personal portfolio</title>
-
-        <!-- Link to CSS file -->
-        <link rel="stylesheet" type="text/css" media="screen" href="mainStyle.css">
-
-		<!-- <link rel="stylesheet" href="style.css"/> -->
-	</head>
-
-	<body>
-        <!-- this is the header section -->
-		<header>
-            <section id="nevBar">
-                <img src="https://www.wired.com/images_blogs/photos/uncategorized/2007/08/06/domoart.jpg">
-                <div id="navigations">
-                    <a href="about.html" class="buttons" target="_blank">About</a>
-                    <a href="projects.html" class="buttons" target="_blank">Projects</a>
-                    <a href="contact.html" class="buttons" target="_blank">Contact</a>
-                </div>
-            </section>
-        </header>
-    
-        <!-- this here is the main content -->
-        <section id="content">
-            <article>
-                <header>
-                    <h1>
-                        Welcome to my playground
-                    </h1>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum voluptas nihil odio dolores <em>blanditiis</em>! Error quisquam porro quo libero quos?
-                    </p>
-                </header>
-
-                <section>
-                    <h2>
-                        Smaller playground
-                    </h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing <strong>elit</strong>. Deleniti quibusdam, vel autem ullam nihil adipisci et modi distinctio deserunt, blanditiis ipsa assumenda vero ut reprehenderit. Quisquam a soluta minus autem.
-                    </p>
-                    <a href="https://en.wikipedia.org/wiki/Sandbox_(computer_security)" target="_blank"><img src="https://img.purch.com/w/600/aHR0cDovL21lZGlhLmJlc3RvZm1pY3JvLmNvbS9SL1ovNDA2NjU1L29yaWdpbmFsL3NhbmRib3guanBn"></a>
-                    <br />
-                    <p>
-                        original photo size <em>600 × 400</em>, resized to <strong>500 x 500</strong>
-                    </p>
-                </section>
-                
-            </article>
-
-            <!-- side bar -->
-            <aside>
-                <h2>
-                    Side bar
-                </h2>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim, praesentium voluptas iure incidunt nemo est minima deserunt inventore voluptatem consequatur!
-            </aside>
-        </section>
-
-        <!-- ze footer -->
-        <footer>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores velit sapiente iste praesentium, quas debitis! Magni ipsum 
-            <br />
-            dicta rem id illum expedita maiores officia, molestiae beatae nulla nobis repellendus omnis aliquam pariatur nisi fuga iste?
-
-
-        </footer>
-
-        <!-- <div id="back-to-top">
-            <a href="#"><img src="https://www.colwick.com/wp-content/uploads/2015/11/Delta-Arrow-logo.png" style="width: 100%; height:90%;"></a>
-
-        </div> -->
-        <div id="back-to-top">
-                <a href="#"><img src="https://steamuserimages-a.akamaihd.net/ugc/937183987854838404/55D510D18DE1E16DDF985ECF55AB66C7DC461ECD/"></a>
-    
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Hangman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container mt-3">
+      <div class="row justify-content-center">
+        <!-- //guess remaining section -->
+        <div class="col-md-6 col-sm-12">
+          <div class="row justify-content-center">
+            <div class="col-12 bg-secondary">
+              <div class="text-center">
+                <h3><u>Guesses Remaining</u></h3>
+                <h1 id="remaining-guesses">0</h1>
+                <h1>Left</h1>
+              </div>
             </div>
-	</body>
+          </div>
+        </div>
+        <!-- guessed letter -->
+        <div class="col-md-3 col-sm-12">
+          <div
+            class="card border border-rounded border-danger bg-light p-2 h-100"
+          >
+            <h3><u>Guessed Letters</u></h3>
+            <ul id="guessed-letter"></ul>
+          </div>
+        </div>
+      </div>
+      <!-- word to guess section -->
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-sm-12">
+          <div class="text-center">
+            <h3>Word To Guess</h3>
+            <h1 id="guessed-word"></h1>
+          </div>
+        </div>
+      </div>
+      <!-- text input -->
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-sm-12">
+          <form id="guess-form" class="form-inline d-none m-3">
+            <!-- added id to text area -->
+            <input
+              type="text"
+              id="guess-letter"
+              class="form-control w-75"
+              placeholder="Choose Letter"
+            />
+            <!-- added id to submit button -->
+            <input
+              type="submit"
+              value="Guess"
+              id="submit-button" 
+              class="btn btn-outline-success"
+            />
+          </form>
+        </div>
+      </div>
+      <!-- start button -->
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-sm-12">
+          <button
+            id="new-game-button"
+            class="btn btn-outline-primary d-block mx-auto m-3"
+          >
+            Start New Game
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
+
